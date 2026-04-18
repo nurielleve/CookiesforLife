@@ -489,12 +489,12 @@ ensureDatabaseExists()
     const count = await productRepository.count();
     if (count === 0) {
       const defaultProducts = [
-        { name: "Strawberry Macaroon", price: 3.00, image: "strawberry.jpg" },
-        { name: "Chocolate Macaroon", price: 2.50, image: "chocolate.jpg" },
-        { name: "Candy Macaroon", price: 2.75, image: "candy.jpg" },
-        { name: "Berry Macaroon", price: 3.00, image: "berry.jpg" },
-        { name: "Caramel Macaroon", price: 2.50, image: "caramel.jpg" },
-        { name: "Orange Macaroon", price: 2.50, image: "orange.jpg" }
+        { name: "Chocolate Chip Cookie", price: 3.00, image: "chocolate-chip-cookie.jpg" },
+        { name: "Double Chocolate Chip Cookie", price: 2.50, image: "double-chocolate-chip-cookie.jpg" },
+        { name: "Red Velvet Cookie", price: 2.75, image: "red-velvet-cookie.jpg" },
+        { name: "Cookies and Cream Cookie", price: 3.00, image: "cookies-and-cream-cookie.jpg" },
+        { name: "Salted Caramel Cookie", price: 2.50, image: "salted-caramel-cookie.jpg" },
+        { name: "Smores Cookie", price: 2.50, image: "smores-cookie.jpg" }
       ];
       for (const prod of defaultProducts) {
         await productRepository.save(prod);
