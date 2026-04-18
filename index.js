@@ -69,7 +69,7 @@ const OrderItemEntity = new EntitySchema({
 
 // Function to ensure the target database exists; if not, create it.
 async function ensureDatabaseExists() {
-  const targetDB = process.env.DB_NAME || "mikes_macaroon_market";
+  const targetDB = process.env.DB_NAME || "cookies_for_life";
   const dbConfig = {
     host: process.env.DB_HOST || "localhost",
     port: process.env.DB_PORT ? parseInt(process.env.DB_PORT) : 5432,
@@ -236,15 +236,15 @@ app.get("/", (req, res) => {
       ">
         <div class="d-flex h-100 align-items-center justify-content-center">
           <div class="text-center text-white">
-            <h1 class="display-3">Welcome to Mike's Macaroon Market!</h1>
-            <p class="lead">Delicious macaroons made with love.</p>
+            <h1 class="display-3">Welcome to Cookies for Life!</h1>
+            <p class="lead">Delicious cookies made with love.</p>
             <a class="btn btn-primary btn-lg" href="/products" role="button">View Our Products</a>
           </div>
         </div>
       </div>
     </div>
   `;
-  res.send(renderPage("Mike's Macaroon Market", content));
+  res.send(renderPage("Cookies for Life", content));
 });
 
 // Products route: List available products from the database with images.
@@ -260,7 +260,7 @@ app.get("/products", async (req, res) => {
           <span id="cartIcon"><i class="fas fa-shopping-cart"></i></span> Cart (<span id="cartCount">0</span>)
         </button>
       </div>
-      <h1 class="mb-4">Our Products</h1>
+      <h1 class="mb-4">Our Cookies</h1>
       <div class="list-group">
     `;
 
@@ -341,7 +341,7 @@ app.get("/products", async (req, res) => {
         document.addEventListener('DOMContentLoaded', updateCartCount);
       </script>
     `;
-    res.send(renderPage("Products - Mike's Macaroon Market", html));
+    res.send(renderPage("Products - Cookies for Life", html));
   } catch (error) {
     console.error("Error fetching products:", error);
     res.status(500).send("Error fetching products");
@@ -375,7 +375,7 @@ app.get("/cart", (req, res) => {
       document.addEventListener('DOMContentLoaded', renderCart);
     </script>
   `;
-  res.send(renderPage("Your Cart - Mike's Macaroon Market", content));
+  res.send(renderPage("Your Cart - Cookies for Life", content));
 });
 
 // Checkout page: Show order form and populate cart details from sessionStorage.
@@ -430,7 +430,7 @@ app.get("/checkout", (req, res) => {
       document.addEventListener('DOMContentLoaded', renderCartSummary);
     </script>
   `;
-  res.send(renderPage("Checkout - Mike's Macaroon Market", content));
+  res.send(renderPage("Checkout - Cookies for Life", content));
 });
 
 // Process checkout: Save the order and order items to the database using submitted cart data.
@@ -461,7 +461,7 @@ app.post("/checkout", async (req, res) => {
       <div class="text-center">
         <h1>Thank you for your order!</h1>
         <p>Your order ID is ${savedOrder.id}.</p>
-        <p>We appreciate your business. Your delicious macaroons are on their way!</p>
+        <p>We appreciate your business. Your delicious cookies are on their way!</p>
         <a class="btn btn-primary" href="/" onclick="clearCart()">Back to Home</a>
       </div>
       <script>
@@ -471,7 +471,7 @@ app.post("/checkout", async (req, res) => {
         clearCart();
       </script>
     `;
-    res.send(renderPage("Order Confirmation - Mike's Macaroon Market", content));
+    res.send(renderPage("Order Confirmation - Cookies for Life", content));
   } catch (error) {
     console.error("Error processing order:", error);
     res.status(500).send("Error processing order");
