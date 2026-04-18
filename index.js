@@ -164,7 +164,7 @@ const AppDataSource = new DataSource({
   ssl: (process.env.DB_HOST && process.env.DB_HOST != 'localhost') ? { ca: fs.readFileSync('global-bundle.pem').toString() } : false,
   username: process.env.DB_USER || "postgres",
   password: process.env.DB_PASS || "postgres",
-  database: process.env.DB_NAME || "mikes_macaroon_market",
+  database: process.env.DB_NAME || "cookies_for_life",
   synchronize: true, // Automatically syncs the schema (not recommended for production)
   logging: false,
   entities: [ProductEntity, OrderEntity, OrderItemEntity]
